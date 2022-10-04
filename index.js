@@ -75,11 +75,9 @@ NOTE: This will be a callback function for the tasks below
 */
 
 
-function inning()
+function inning(x)
 {
-    let minimumScore = 0;
-    let maximumScore = 2;
-    return Math.round(Math.random() * (maximumScore - minimumScore));
+    return Math.round(Math.random() * (2 - 0));
 }
 
 //console.log (inning());
@@ -101,9 +99,24 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*Code Here*/){
-  /*Code Here*/
+function finalScore(inningCB, innings)
+{
+  let hS = 0;
+  let aS = 0;
+  for ( let i = 0; i <= innings; i += 1)
+  {
+    // Increment the Home Score
+    hS += inningCB(hS);
+    // Increment the Away Score
+    aS += inningCB(aS);
+  }
+  console.log(`Final\nHome Score:  ${hS}\nAway Score:  ${aS}`);
 }
+
+
+
+finalScore(inning, 9);
+
 
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
