@@ -107,8 +107,8 @@ function finalScore(inningCB, innings)
   }
   for ( let i = 0; i <= innings; i += 1)
   {
-    teamScores.Home += inning();
-    teamScores.Away += inning();
+    teamScores.Home += inningCB();
+    teamScores.Away += inningCB();
   }
   return teamScores;
 }
@@ -136,8 +136,8 @@ function getInningScore(inningCB, innings)
   }
   for ( let i = 0; i <= innings; i += 1)
   {
-    inningScores.Home = inning();
-    inningScores.Away = inning();
+    inningScores.Home = inningCB();
+    inningScores.Away = inningCB();
     console.log(inningScores);
   }
   return inningScores;
