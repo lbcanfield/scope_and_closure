@@ -75,12 +75,11 @@ NOTE: This will be a callback function for the tasks below
 */
 
 
-function inning(x)
+function inning()
 {
-    return Math.round(Math.random() * (2 - 0));
+    return Math.round(Math.random() * 2);
 }
 
-//console.log (inning());
 
 
 
@@ -101,21 +100,23 @@ Use the finalScore function below to do the following:
 
 function finalScore(inningCB, innings)
 {
-  let hS = 0;
-  let aS = 0;
+  const teamScores = 
+  {
+    Home: 0,
+    Away: 0
+  }
   for ( let i = 0; i <= innings; i += 1)
   {
-    // Increment the Home Score
-    hS += inningCB(hS);
-    // Increment the Away Score
-    aS += inningCB(aS);
+    teamScores.Home += inning();
+    teamScores.Away += inning();
   }
-  console.log(`Final\nHome Score:  ${hS}\nAway Score:  ${aS}`);
+  return teamScores;
 }
 
 
 
-finalScore(inning, 9);
+
+
 
 
 
@@ -137,7 +138,9 @@ function getInningScore(/*Your Code Here */) {
 
 }
 
+const finalScores = finalScore(inning, 9);
 
+console.log (finalScores);
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
   1. Receive the callback function in the first parameter that will take `getInningScore` from Task 4 as its argument
