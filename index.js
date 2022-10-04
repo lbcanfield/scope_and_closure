@@ -30,11 +30,21 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+      'counter1' is a constant variable that calles the couterMaker function to execute 
+       and return the value of count, which is defined in that function after incrementing
+       that variable by 1 making count in counterMaker locally scoped inside that function.
+      'counter2' utilizes the global variable of count wich returns the value of count to 
+      the function calling statement (that does not exist).
+
   2. Which of the two uses a closure? How can you tell?
-  
+      The counterMaker function uses closer by returning the incremented value of count
+      which is defined locally to the outer function.
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+      counter1, as it is a constant variable can only be used once whereas counter2,
+      if called would increment the value of the local variable count each time 
+      it would execute. 
 */
 
 // counter1 code
@@ -64,9 +74,17 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+
+function inning()
+{
+    let minimumScore = 0;
+    let maximumScore = 2;
+    return Math.round(Math.random() * (maximumScore - minimumScore));
 }
+
+//console.log (inning());
+
+
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
